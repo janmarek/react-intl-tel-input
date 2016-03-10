@@ -1,11 +1,11 @@
-import '../../.auto_mock_off';
+import {expect} from 'chai';
 
 import * as types from '../../src/constants/actionTypes';
 import * as actions from '../../src/actions/intlTelInputActions';
 
 describe('actions', () => {
   it('getPropsData should create GET_PROPS_DATA action', () => {
-    expect(actions.getPropsData('', undefined)).toEqual({
+    expect(actions.getPropsData('', undefined)).to.eql({
       type: types.GET_PROPS_DATA,
       data: {
         telInput: {
@@ -17,7 +17,7 @@ describe('actions', () => {
   });
 
   it('changeHighlightCountry should create CHANGE_HIGHLIGHT_COUNTRY action', () => {
-    expect(actions.changeHighlightCountry(true, 5)).toEqual({
+    expect(actions.changeHighlightCountry(true, 5)).to.eql({
       type: types.CHANGE_HIGHLIGHT_COUNTRY,
       data: {
         countryList: {
@@ -29,7 +29,7 @@ describe('actions', () => {
   });
 
   it('handleUpDownKey should create HANDLE_UPDOWN_KEY action', () => {
-    expect(actions.handleUpDownKey(true, 15)).toEqual({
+    expect(actions.handleUpDownKey(true, 15)).to.eql({
       type: types.HANDLE_UPDOWN_KEY,
       data: {
         countryList: {
@@ -41,7 +41,7 @@ describe('actions', () => {
   });
 
   it('handleEnterKey should create HANDLE_ENTER_KEY action', () => {
-    expect(actions.handleEnterKey(true, 8, 'tw')).toEqual({
+    expect(actions.handleEnterKey(true, 8, 'tw')).to.eql({
       type: types.HANDLE_ENTER_KEY,
       data: {
         countryList: {
@@ -54,7 +54,7 @@ describe('actions', () => {
   });
 
   it('searchForCountry should create SEARCH_FOR_COUNTRY action', () => {
-    expect(actions.searchForCountry(true, 3)).toEqual({
+    expect(actions.searchForCountry(true, 3)).to.eql({
       type: types.SEARCH_FOR_COUNTRY,
       data: {
         countryList: {
@@ -66,7 +66,7 @@ describe('actions', () => {
   });
 
   it('handleDocumentKeydown should create HANDLE_DOCUMENT_KEYDOWN action', () => {
-    expect(actions.handleDocumentKeydown(true)).toEqual({
+    expect(actions.handleDocumentKeydown(true)).to.eql({
       type: types.HANDLE_DOCUMENT_KEYDOWN,
       data: {
         countryList: {
@@ -77,7 +77,7 @@ describe('actions', () => {
   });
 
   it('handleDocumentClick should create HANDLE_DOCUMENT_CLICK action', () => {
-    expect(actions.handleDocumentClick(true)).toEqual({
+    expect(actions.handleDocumentClick(true)).to.eql({
       type: types.HANDLE_DOCUMENT_CLICK,
       data: {
         countryList: {
@@ -88,7 +88,7 @@ describe('actions', () => {
   });
 
   it('updateVal should create UPDATE_VAL action', () => {
-    expect(actions.updateVal(false, '0912 345 678')).toEqual({
+    expect(actions.updateVal(false, '0912 345 678')).to.eql({
       type: types.UPDATE_VAL,
       data: {
         countryList: {
@@ -102,7 +102,7 @@ describe('actions', () => {
   });
 
   it('selectFlag should create SELECT_FLAG action', () => {
-    expect(actions.selectFlag(false, 'tw')).toEqual({
+    expect(actions.selectFlag(false, 'tw')).to.eql({
       type: types.SELECT_FLAG,
       data: {
         countryList: {
@@ -114,7 +114,7 @@ describe('actions', () => {
   });
 
   it('toggleDropdown should create TOGGLE_DROPDOWN action', () => {
-    expect(actions.toggleDropdown(false)).toEqual({
+    expect(actions.toggleDropdown(false)).to.eql({
       type: types.TOGGLE_DROPDOWN,
       data: {
         countryList: {
@@ -125,7 +125,7 @@ describe('actions', () => {
   });
 
   it('clickSelectedFlag should create CLICK_SELECTED_FLAG action', () => {
-    expect(actions.clickSelectedFlag(true, 100, 500)).toEqual({
+    expect(actions.clickSelectedFlag(true, 100, 500)).to.eql({
       type: types.CLICK_SELECTED_FLAG,
       data: {
         countryList: {
@@ -140,7 +140,7 @@ describe('actions', () => {
   });
 
   it('ensurePlus should create ENSURE_PLUS action', () => {
-    expect(actions.ensurePlus('+886912345678')).toEqual({
+    expect(actions.ensurePlus('+886912345678')).to.eql({
       type: types.ENSURE_PLUS,
       data: {
         telInput: {
@@ -151,7 +151,7 @@ describe('actions', () => {
   });
 
   it('handleInputChange should create HANDLE_INPUT_CHANGE action', () => {
-    expect(actions.handleInputChange('0912 3')).toEqual({
+    expect(actions.handleInputChange('0912 3')).to.eql({
       type: types.HANDLE_INPUT_CHANGE,
       data: {
         telInput: {

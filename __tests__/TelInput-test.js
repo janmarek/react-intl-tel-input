@@ -1,4 +1,4 @@
-import '../.auto_mock_off';
+import {expect} from 'chai';
 import React from 'react';
 import { findDOMNode } from 'react-dom';
 import TestUtils from 'react-addons-test-utils';
@@ -20,23 +20,23 @@ describe('TelInput', () => {
 
   it('set fieldName as "telephone"', () => {
     const telInput = TestUtils.findRenderedComponentWithType(component, TelInput);
-    expect(telInput.props.fieldName).toEqual('telephone');
+    expect(telInput.props.fieldName).to.eql('telephone');
   });
 
   it('set value as "0999 123 456"', () => {
     const telInput = TestUtils.findRenderedComponentWithType(component, TelInput);
-    expect(telInput.props.value).toEqual('0999 123 456');
+    expect(telInput.props.value).to.eql('0999 123 456');
   });
 
   it('set className', () => {
     const telInput = TestUtils.findRenderedComponentWithType(component, TelInput);
-    expect(findDOMNode(telInput).className).toEqual('form-control phoneNumber');
+    expect(findDOMNode(telInput).className).to.eql('form-control phoneNumber');
   });
 
   it('change value', () => {
     const telInput = TestUtils.findRenderedComponentWithType(component, TelInput);
     findDOMNode(telInput).value = '12345';
     TestUtils.Simulate.change(findDOMNode(telInput));
-    expect(telInput.props.value).toEqual('12345');
+    expect(telInput.props.value).to.eql('12345');
   });
 });

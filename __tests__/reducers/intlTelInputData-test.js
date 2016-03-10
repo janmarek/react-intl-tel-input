@@ -1,11 +1,11 @@
-import '../../.auto_mock_off';
+import {expect} from 'chai';
 
 import * as types from '../../src/constants/actionTypes';
 import { intlTelInputData as reducer } from '../../src/reducers/index';
 
 describe('reducer', () => {
   it('should handle have initial data', () => {
-    expect(reducer(undefined, {})).toEqual({
+    expect(reducer(undefined, {})).to.eql({
       countryList: {
         showDropdown: false,
         highlightedCountry: 0,
@@ -44,7 +44,7 @@ describe('reducer', () => {
         },
         countryCode: 'tw',
       },
-    })).toEqual({
+    })).to.eql({
       countryList: {
         showDropdown: false,
         highlightedCountry: 0,
@@ -90,7 +90,7 @@ describe('reducer', () => {
         },
         countryCode: 'us',
       },
-    })).toEqual({
+    })).to.eql({
       countryList: {
         showDropdown: true,
         highlightedCountry: 27,
@@ -128,7 +128,7 @@ describe('reducer', () => {
           highlightedCountry: 29,
         },
       },
-    })).toEqual({
+    })).to.eql({
       countryList: {
         showDropdown: true,
         highlightedCountry: 29,
@@ -167,7 +167,7 @@ describe('reducer', () => {
         },
         countryCode: 'tw',
       },
-    })).toEqual({
+    })).to.eql({
       countryList: {
         showDropdown: true,
         highlightedCountry: 20,
@@ -205,7 +205,7 @@ describe('reducer', () => {
           highlightedCountry: 30,
         },
       },
-    })).toEqual({
+    })).to.eql({
       countryList: {
         showDropdown: true,
         highlightedCountry: 30,
@@ -242,7 +242,7 @@ describe('reducer', () => {
           showDropdown: false,
         },
       },
-    })).toEqual({
+    })).to.eql({
       countryList: {
         showDropdown: false,
         highlightedCountry: 0,
@@ -279,7 +279,7 @@ describe('reducer', () => {
           showDropdown: false,
         },
       },
-    })).toEqual({
+    })).to.eql({
       countryList: {
         showDropdown: false,
         highlightedCountry: 0,
@@ -319,7 +319,7 @@ describe('reducer', () => {
           value: '0912 345 678',
         },
       },
-    })).toEqual({
+    })).to.eql({
       countryList: {
         showDropdown: false,
         highlightedCountry: 0,
@@ -357,7 +357,7 @@ describe('reducer', () => {
         },
         countryCode: 'tw',
       },
-    })).toEqual({
+    })).to.eql({
       countryList: {
         showDropdown: false,
         highlightedCountry: 0,
@@ -394,7 +394,7 @@ describe('reducer', () => {
           showDropdown: true,
         },
       },
-    })).toEqual({
+    })).to.eql({
       countryList: {
         showDropdown: true,
         highlightedCountry: 0,
@@ -435,7 +435,7 @@ describe('reducer', () => {
           outerHeight: 500,
         },
       },
-    })).toEqual({
+    })).to.eql({
       countryList: {
         showDropdown: true,
         highlightedCountry: 0,
@@ -472,7 +472,7 @@ describe('reducer', () => {
           value: '+886912345678',
         },
       },
-    })).toEqual({
+    })).to.eql({
       countryList: {
         showDropdown: false,
         highlightedCountry: 0,
@@ -509,7 +509,7 @@ describe('reducer', () => {
           value: '0999 12',
         },
       },
-    })).toEqual({
+    })).to.eql({
       countryList: {
         showDropdown: false,
         highlightedCountry: 0,

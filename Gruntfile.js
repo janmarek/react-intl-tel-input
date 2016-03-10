@@ -1,5 +1,15 @@
 'use strict';
 
+// configuration for tests
+require('babel-register')({
+    ignore: /node_modules/
+});
+function noop() {
+  return null;
+}
+require.extensions['.scss'] = noop;
+require('jsdom-global')();
+
 var mountFolder = function (connect, dir) {
   return connect.static(require('path').resolve(dir));
 };
@@ -11,6 +21,8 @@ var webpackExampleConfig = require('./webpack.example.config.js'),
 module.exports = function (grunt) {
   // Let *load-grunt-tasks* require everything
   require('load-grunt-tasks')(grunt);
+
+  grunt.loadNpmTasks('grunt-mocha-test');
 
   // Read configuration from package.json
   var folders = {
@@ -122,6 +134,15 @@ module.exports = function (grunt) {
         base: 'example'
       },
       src: ['**']
+    },
+
+    mochaTest: {
+      test: {
+        options: {
+          reporter: 'spec'
+        },
+        src: ['__tests__/**/*-test.js']
+      }
     }
   });
 
@@ -137,6 +158,8 @@ module.exports = function (grunt) {
       'webpack-dev-server'
     ]);
   });
+
+  grunt.registerTask('test', 'mochaTest');
 
   grunt.registerTask('build', ['clean:example', 'copy', 'webpack:example']);
   grunt.registerTask('build:dist', ['clean:dist', 'copy', 'webpack:dist']);
